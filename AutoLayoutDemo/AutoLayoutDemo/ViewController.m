@@ -11,6 +11,8 @@
 
 #import "Masonry.h"
 
+#import "MyObject.h"
+
 @interface ViewController ()
 {
     Person *_hostP;
@@ -20,6 +22,8 @@
     UIView *_blueV;
     
     UIView *_purperV;
+    
+    BOOL flag;
 }
 @end
 
@@ -145,11 +149,11 @@
     
 //    [self arcTest];
     
-    NSLog(@"\n---------MainThread  \nTime: %@    \nfunc: %s   \nCurrent \nNSThread:%@ \n\n", [NSDate date], __FUNCTION__, [NSThread currentThread]);
+//    NSLog(@"\n---------MainThread  \nTime: %@    \nfunc: %s   \nCurrent \nNSThread:%@ \n\n", [NSDate date], __FUNCTION__, [NSThread currentThread]);
     
     
 //    [self testSynInSerialQueue];
-    [self testAsynInSeriaQueue];
+//    [self testAsynInSeriaQueue];
     
 //    [self testSynInConcurrentQueue];
 //    [self testAsynInConcurrentQueue];
@@ -165,6 +169,16 @@
     }];
     
     [self animateTest];
+    
+    
+    flag = !flag;
+    
+    if (flag) {
+        [self weakStrongBlockTest];
+    }else{
+        [self weakStrongBlockTest2];
+    }
+    
 }
 
 //-(void)viewDidLayoutSubviews
@@ -446,5 +460,66 @@
         }
     });
 }
+
+
+
+-(void)weakStrongBlockTest
+{
+    MyObject *obj = [[MyObject alloc]init];
+    obj.text = @"my-object";
+    TLog(@"obj", obj);
+    
+    __weak MyObject *weakObj = obj;
+    TLog(@"weakObj-0", weakObj);
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        __strong MyObject *strongObj = weakObj;
+        TLog(@"weakObj - block", weakObj);
+        TLog(@"strongObj - block", strongObj);
+        
+        sleep(3);
+        
+        TLog(@"weakObj - block", weakObj);
+        TLog(@"strongObj - block", strongObj);
+    });
+    NSLog(@"------ sleep 1s");
+    sleep(1);
+    obj = nil;
+    TLog(@"weakObj-1", weakObj);
+    NSLog(@"------ sleep 5s");
+    sleep(5);
+    TLog(@"weakObj-2", weakObj);
+}
+
+
+-(void)weakStrongBlockTest2
+{
+    MyObject *obj = [[MyObject alloc]init];
+    obj.text = @"==my-object2";
+    TLog(@"==obj", obj);
+    
+    __weak MyObject *weakObj = obj;
+    TLog(@"==weakObj-0", weakObj);
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//        __strong MyObject *strongObj = weakObj;
+        TLog(@"==weakObj - block", weakObj);
+//        TLog(@"==strongObj - block", strongObj);
+        
+        sleep(3);
+        
+        TLog(@"==weakObj - block", weakObj);
+//        TLog(@"==strongObj - block", strongObj);
+    });
+    NSLog(@"==------ sleep 1s");
+    sleep(1);
+    obj = nil;
+    TLog(@"==weakObj-1", weakObj);
+    NSLog(@"==------ sleep 5s");
+    sleep(5);
+    TLog(@"==weakObj-2", weakObj);
+}
+
+
 
 @end

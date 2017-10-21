@@ -30,6 +30,8 @@
 		17D06F2E1E84FA5900F6A307 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17D06F2C1E84FA5900F6A307 /* LaunchScreen.storyboard */; };
 		17D06F391E84FA5A00F6A307 /* AutoLayoutDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D06F381E84FA5A00F6A307 /* AutoLayoutDemoTests.m */; };
 		17D06F441E84FA5A00F6A307 /* AutoLayoutDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D06F431E84FA5A00F6A307 /* AutoLayoutDemoUITests.m */; };
+		17DA42611EBB39EF003E59EF /* MyObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 17DA42601EBB39EF003E59EF /* MyObject.m */; };
+		17E5F3171EAA18F10035EF98 /* ArgView.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E5F3161EAA18F10035EF98 /* ArgView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +123,10 @@
 		17D06F3F1E84FA5A00F6A307 /* AutoLayoutDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AutoLayoutDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		17D06F431E84FA5A00F6A307 /* AutoLayoutDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AutoLayoutDemoUITests.m; sourceTree = "<group>"; };
 		17D06F451E84FA5A00F6A307 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		17DA425F1EBB39EF003E59EF /* MyObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyObject.h; sourceTree = "<group>"; };
+		17DA42601EBB39EF003E59EF /* MyObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyObject.m; sourceTree = "<group>"; };
+		17E5F3151EAA18F10035EF98 /* ArgView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArgView.h; sourceTree = "<group>"; };
+		17E5F3161EAA18F10035EF98 /* ArgView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArgView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -246,6 +252,10 @@
 				17D06F2C1E84FA5900F6A307 /* LaunchScreen.storyboard */,
 				17D06F2F1E84FA5900F6A307 /* Info.plist */,
 				17D06F1E1E84FA5900F6A307 /* Supporting Files */,
+				17E5F3151EAA18F10035EF98 /* ArgView.h */,
+				17E5F3161EAA18F10035EF98 /* ArgView.m */,
+				17DA425F1EBB39EF003E59EF /* MyObject.h */,
+				17DA42601EBB39EF003E59EF /* MyObject.m */,
 			);
 			path = AutoLayoutDemo;
 			sourceTree = "<group>";
@@ -459,6 +469,7 @@
 			files = (
 				172D5B2B1E8C9ED900F500B8 /* MASConstraintMaker.m in Sources */,
 				17D06F261E84FA5900F6A307 /* ViewController.m in Sources */,
+				17DA42611EBB39EF003E59EF /* MyObject.m in Sources */,
 				17D06F231E84FA5900F6A307 /* AppDelegate.m in Sources */,
 				172D5B2A1E8C9ED900F500B8 /* MASConstraint.m in Sources */,
 				172D5B321E8C9ED900F500B8 /* ViewController+MASAdditions.m in Sources */,
@@ -468,6 +479,7 @@
 				172D5B2D1E8C9ED900F500B8 /* MASViewAttribute.m in Sources */,
 				172D5B311E8C9ED900F500B8 /* View+MASAdditions.m in Sources */,
 				1706F7441E88C5BB005D5109 /* Person.m in Sources */,
+				17E5F3171EAA18F10035EF98 /* ArgView.m in Sources */,
 				17D06F201E84FA5900F6A307 /* main.m in Sources */,
 				172D5B291E8C9ED900F500B8 /* MASCompositeConstraint.m in Sources */,
 				172D5B301E8C9ED900F500B8 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
